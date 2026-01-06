@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fazri Official</title>
+    <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: black;
+            color: white;
+            overflow: hidden;
+            font-family: 'Metal Mania', cursive;
+        }
+
+        /* Slide Style */
+        .slide {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.8s ease-in-out;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Slide 1: Welcome */
+        #slide1 {
+            background: #111;
+            z-index: 10;
+            cursor: pointer;
+        }
+
+        .tap-msg {
+            font-size: 1.5rem;
+            animation: pulse 1.5s infinite;
+            font-family: Arial, sans-serif;
+            color: #888;
+        }
+
+        /* Slide 2: Pesan Metal */
+        #slide2 {
+            background: black;
+            transform: translateY(100%); 
+            z-index: 5;
+        }
+
+        h1 {
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            text-transform: uppercase;
+            animation: shake 0.2s infinite;
+            word-wrap: break-word;
+        }
+
+        /* Animasi */
+        @keyframes pulse {
+            0% { opacity: 0.3; }
+            50% { opacity: 1; }
+            100% { opacity: 0.3; }
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px); }
+            25% { transform: translate(-2px, -1px); }
+            50% { transform: translate(-1px, 2px); }
+            75% { transform: translate(2px, -2px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+    <div id="slide1" class="slide" onclick="startExperience()">
+        <div class="tap-msg">TAP UNTUK MELANJUTKAN...</div>
+    </div>
+
+    <div id="slide2" class="slide">
+        <h1>
+            ini akun resmi Fazri dan pesan buat yang baca tong kepo Kana kahirupan Batur, beunget sia jiga Bagong hahaaaa
+        </h1>
+    </div>
+
+    <audio id="myAudio" loop>
+        <source src="TikSave.io_7587440161789725960.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function startExperience() {
+            const s1 = document.getElementById('slide1');
+            const s2 = document.getElementById('slide2');
+            const audio = document.getElementById('myAudio');
+
+            // 1. Putar Audio
+            audio.play().catch(e => console.log("Audio play failed. Pastikan file audio ada di folder yang sama."));
+
+            // 2. Transisi Slide
+            s1.style.transform = "translateY(-100%)";
+            s2.style.transform = "translateY(0)";
+
+            setTimeout(() => {
+                s1.classList.add('hidden');
+            }, 800);
+        }
+    </script>
+
+</body>
+</html>
